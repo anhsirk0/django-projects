@@ -1,0 +1,19 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}
+Error Occured
+{% endblock title %}
+
+{% block body %}
+<div class="empty"></div>
+<div class="empty"></div>
+<div class="container center">
+    <h1 class="red-text">
+        {% if error %}
+        {{ error }}
+        {% else %}
+        Internal Server Error
+        {% endif %}
+    </h1>
+</div>
+{% endblock body %}

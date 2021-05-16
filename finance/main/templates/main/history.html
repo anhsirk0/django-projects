@@ -1,0 +1,33 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title %}
+Finance
+{% endblock title %}
+
+{% block body %}
+<div class="container center" style="padding-left: 150px;">
+    <div class="empty"></div>
+    <table class="highlight">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Symbol</th>
+                <th>Shares</th>
+                <th>Price ($)</th>
+                <th>Transacted</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for hist in all_history %}
+            <tr>
+                <td>{{ forloop.counter }}.</td>
+                <td>{{ hist.symbol }}</td>
+                <td>{{ hist.no_of_share }}</td>
+                <td>{{ hist.price }}</td>
+                <td>{{ hist.time }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock body %}

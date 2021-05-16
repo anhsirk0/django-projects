@@ -1,0 +1,46 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title %}
+Finance
+{% endblock title %}
+
+{% block body %}
+<div class="container">
+    <div class="empty"></div>
+    <table class="highlight">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price ($)</th>
+                <th>TOTAL</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td colspan="4"></td>
+                <td class="bold">${{ total }}</td>
+            </tr>
+        </tfoot>
+        <tbody>
+            {% for share in shares %}
+            <tr>
+                <td>{{ share.symbol }}</td>
+                <td>{{ share.name }}</td>
+                <td>{{ share.no_of_share }}</td>
+                <td>{{ share.price }}</td>
+                <td>{{ share.total }}</td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td>CASH</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>{{ left }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock body %}

@@ -1,0 +1,27 @@
+:root {
+    --primary: #f44336;
+}
+
+.myfooter {
+    width: 100% !important;
+    bottom: 0 !important;
+    height: 130px !important;
+}
+
+.mycolor {
+    background: var(--primary) !important;
+}
+
+.mytextcolor {
+    color: var(--primary) !important;
+}
+
+.empty {
+    height: 60px;
+}
+
+
+.dropdown-content li>a, .dropdown-content li>span {
+    color: var(--primary) !important;
+}
+

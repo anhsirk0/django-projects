@@ -1,0 +1,38 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+{% block title %}
+Finance - Quote
+{% endblock title %}
+
+{% block body %}
+<div class="container center">
+    <div class="empty"></div>
+    <div class="row">
+        <div class="col s8 offset-s2">
+            {% if result %}
+            <div class="empty"></div>
+            <div class="empty"></div>
+            <h4>A share of {{ result.name }} ({{ result.symbol }}) is $ {{ result.price }}</h4>
+            {% else %}
+            <h2 class="mytextcolor center">Quote</h2>
+            <form action="{% url 'quote' %}" method="post" class="col s12">
+                {% csrf_token %}
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="symbol" name="symbol" type="text">
+                        <label class="mytextcolor">Symbol</label>
+                    </div>
+                </div>
+
+                <div class="row center">
+                    <button class="btn btn-large waves-effect waves-light mycolor" type="submit" name="submit">Quote
+                    </button>
+                </div>
+            </form>
+            {% endif %}
+        </div>
+    </div>
+
+</div>
+{% endblock body %}
